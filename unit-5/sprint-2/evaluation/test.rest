@@ -1,0 +1,12 @@
+GET https://restcountries.com/v3.1/currency/india
+
+Content-Type: application/json;
+
+
+
+
+
+
+
+
+

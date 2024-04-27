@@ -1,0 +1,412 @@
+const {
+  Person,
+  Employee,
+  Manager,
+  Accountant,
+  SeniorManager,
+  // Developer,
+  // SeniorDeveloper,
+} = require("../problem2");
+
+global.score = 0;
+
+describe("Person prototype", () => {
+  test("should create a new Person class with the correct name and age properties", () => {
+    const person = new Person("Alice", 30);
+    expect(person.name).toBe("Alice");
+    expect(person.age).toBe(30);
+
+    const person1 = new Person("Bob", 35);
+    expect(person1.name).toBe("Bob");
+    expect(person1.age).toBe(35);
+
+    expect(person1.hasOwnProperty("getDetails")).toBe(false);
+    expect(person1.hasOwnProperty("increaseAge")).toBe(false);
+    expect(person1.hasOwnProperty("decreaseAge")).toBe(false);
+
+    global.score += 1;
+  });
+
+  test("getDetails should return correct string", () => {
+    const person = new Person("Alice", 30);
+    const expectedDetails = "Alice is 30 years old.";
+
+    expect(person.getDetails()).toBe(expectedDetails);
+    global.score += 0.5;
+  });
+
+  test("increaseAge and decreaseAge should working correctly and decreaseAge should throw an error when age is already zero", () => {
+    const person = new Person("Bob", 35);
+    const increasedAge = person.increaseAge();
+
+    expect(increasedAge).toBe(36);
+    expect(person.age).toBe(36);
+
+    const person2 = new Person("Charlie", 25);
+    const decreasedAge = person2.decreaseAge();
+
+    expect(decreasedAge).toBe(24);
+    expect(person2.age).toBe(24);
+    const person3 = new Person("David", 0);
+
+    expect(() => {
+      person3.decreaseAge();
+    }).toThrow("Age can't be decreased beyond zero.");
+
+    expect(person3.age).toBe(0);
+
+    global.score += 1;
+  });
+});
+
+describe("Employee prototype", () => {
+  test("should create a new Employee class with the correct name, age, and salary properties", () => {
+    const employee = new Employee("Alice", 30, 60000);
+    expect(employee.name).toBe("Alice");
+    expect(employee.age).toBe(30);
+    expect(employee.salary).toBe(60000);
+
+    const employee2 = new Employee("Bob", 35, 70000);
+    expect(employee2.name).toBe("Bob");
+    expect(employee2.age).toBe(35);
+    expect(employee2.salary).toBe(70000);
+
+    expect(employee2.hasOwnProperty("getDetails")).toBe(false);
+    expect(employee2.hasOwnProperty("decreaseSalary")).toBe(false);
+    expect(employee2.hasOwnProperty("increaseSalary")).toBe(false);
+
+    expect(Employee.prototype.__proto__ === Person.prototype).toBe(true);
+
+    global.score += 1;
+  });
+
+  test("getDetails should return correct string", () => {
+    const employee = new Employee("Alice", 30, 60000);
+    const expectedDetails =
+      "Hi I am Alice and I am 30 years old and my salary is 60000.";
+
+    expect(employee.getDetails()).toBe(expectedDetails);
+    global.score += 0.5;
+  });
+
+  test("increaseSalary should working correctly and should throw an error for invalid input", () => {
+    const employee = new Employee("Bob", 35, 70000);
+    const increaseAmount = 5000;
+    const expectedSalary = 75000;
+
+    expect(employee.increaseSalary(increaseAmount)).toBe(expectedSalary);
+    expect(employee.salary).toBe(expectedSalary);
+
+    const employee2 = new Employee("Charlie", 25, 50000);
+    const invalidValue = "invalid";
+
+    expect(() => {
+      employee2.increaseSalary(invalidValue);
+    }).toThrow("value has to be positive integer and greater than zero.");
+
+    expect(employee2.salary).toBe(50000);
+
+    global.score += 1;
+  });
+
+  test("decreaseSalary should working correctly and should throw an error when value is greater than the current salary or invalid input", () => {
+    const employee = new Employee("David", 28, 55000);
+    const decreaseAmount = 10000;
+    const expectedSalary = 45000;
+
+    expect(employee.decreaseSalary(decreaseAmount)).toBe(expectedSalary);
+    expect(employee.salary).toBe(expectedSalary);
+
+    const employee2 = new Employee("Eve", 40, 65000);
+    const invalidValue = 70000;
+
+    expect(() => {
+      employee2.decreaseSalary(invalidValue);
+    }).toThrow("The value has to be less than or eqaul to the current salary.");
+    expect(employee2.salary).toBe(65000);
+
+    global.score += 1;
+  });
+});
+
+describe("Manager prototype", () => {
+  test("should create a new Manager class with the correct name, age, salary, and team properties", () => {
+    const manager = new Manager("Alice", 35, 90000, "Engineering");
+    expect(manager.name).toBe("Alice");
+    expect(manager.age).toBe(35);
+    expect(manager.salary).toBe(90000);
+    expect(manager.team).toBe("Engineering");
+
+    const manager2 = new Manager("Bob", 40, 100000, "Finance");
+    expect(manager2.name).toBe("Bob");
+    expect(manager2.age).toBe(40);
+    expect(manager2.salary).toBe(100000);
+    expect(manager2.team).toBe("Finance");
+
+    expect(manager2.hasOwnProperty("getDetails")).toBe(false);
+    expect(manager2.hasOwnProperty("manageTeam")).toBe(false);
+
+    expect(Manager.prototype.__proto__ === Employee.prototype).toBe(true);
+
+    global.score += 1;
+  });
+
+  test("getDetails and manageTeam should return correct string", () => {
+    const manager = new Manager("Alice", 35, 90000, "Engineering");
+    const expectedDetails =
+      "Hi I am Alice and I am 35 years old and my salary is 90000 and I am a manager.";
+
+    expect(manager.getDetails()).toBe(expectedDetails);
+
+    const manager2 = new Manager("Bob", 40, 100000, "Finance");
+    const expectedString = "I am Bob and I manage Finance team.";
+
+    expect(manager2.manageTeam()).toBe(expectedString);
+    global.score += 0.5;
+  });
+});
+
+describe("Accountant prototype", () => {
+  test("should create a new Accountant class with the correct name, age, salary, and clients properties", () => {
+    const accountant = new Accountant("Debobrota", 65, 150000, [
+      "Client I",
+      "Client J",
+    ]);
+    expect(accountant.name).toBe("Debobrota");
+    expect(accountant.age).toBe(65);
+    expect(accountant.salary).toBe(150000);
+    expect(accountant.clients).toEqual(["Client I", "Client J"]);
+
+    const accountant2 = new Accountant("Debu", 25, 120000, ["HEY", "HELLO"]);
+    expect(accountant2.name).toBe("Debu");
+    expect(accountant2.age).toBe(25);
+    expect(accountant2.salary).toBe(120000);
+    expect(accountant2.clients).toEqual(["HEY", "HELLO"]);
+
+    expect(accountant2.hasOwnProperty("getDetails")).toBe(false);
+    expect(accountant2.hasOwnProperty("manageTeam")).toBe(false);
+
+    expect(Accountant.prototype.__proto__ === Employee.prototype).toBe(true);
+
+    global.score += 1;
+  });
+
+  test("getDetails should return correct string", () => {
+    const accountant = new Accountant("Alice", 35, 90000, [
+      "Client A",
+      "Client B",
+    ]);
+    const expectedDetails =
+      "Hi I am Alice and I am 35 years old and my salary is 90000 and I am an accountant.";
+
+    expect(accountant.getDetails()).toBe(expectedDetails);
+    global.score += 0.5;
+  });
+
+  test("manageAccounts should return correct string", () => {
+    const accountant = new Accountant("Bob", 40, 100000, [
+      "Client C",
+      "Client D",
+    ]);
+    const expectedString =
+      "Bob is managing accounts for clients: Client C,Client D.";
+
+    expect(accountant.manageAccounts()).toBe(expectedString);
+    global.score += 1;
+  });
+
+  test("addClient should add client correctly", () => {
+    const accountant = new Accountant("Charlie", 45, 110000, []);
+    const addedClient = "Client E";
+    expect(accountant.addClient(addedClient)).toBe(
+      `${addedClient} added successfully.`
+    );
+    expect(accountant.clients).toEqual([addedClient]);
+    global.score += 0.5;
+  });
+
+  test("addClient should throw an error for invalid input", () => {
+    const accountant = new Accountant("David", 50, 120000, []);
+    expect(() => {
+      accountant.addClient(123);
+    }).toThrow("skill has to be non-empty string.");
+    expect(accountant.clients).toEqual([]);
+    global.score += 0.5;
+  });
+
+  test("removeClient should remove client correctly", () => {
+    const accountant = new Accountant("Eve", 55, 130000, [
+      "Client F",
+      "Client G",
+    ]);
+    const removedClient = "Client F";
+
+    expect(accountant.removeClient(removedClient)).toBe(
+      `${removedClient} removed successfully.`
+    );
+    expect(accountant.clients).toEqual(["Client G"]);
+    global.score += 0.5;
+  });
+
+  test("removeClient should throw an error for invalid input", () => {
+    const accountant = new Accountant("Frank", 60, 140000, ["Client H"]);
+
+    expect(() => {
+      accountant.removeClient(123);
+    }).toThrow("client has to be non-empty string.");
+
+    // Ensure clients array remains unchanged
+    expect(accountant.clients).toEqual(["Client H"]);
+    global.score += 0.5;
+  });
+});
+
+describe("SeniorManager prototype", () => {
+  test("getDetails should return correct string", () => {
+    const seniorManager = new SeniorManager(
+      "Alice",
+      40,
+      120000,
+      "Engineering",
+      5
+    );
+    const expectedDetails =
+      "Hi I am Alice and I am 40 years old and my salary is 120000 and I am a senior manager.";
+
+    expect(seniorManager.getDetails()).toBe(expectedDetails);
+    global.score += 1;
+  });
+
+  test("displayYearsInPosition should return correct string", () => {
+    const seniorManager = new SeniorManager("Bob", 45, 130000, "Finance", 7);
+    const expectedString =
+      "Bob has been in the position of senior manager for 7 years.";
+
+    expect(seniorManager.displayYearsInPosition()).toBe(expectedString);
+    global.score += 1;
+  });
+
+  test("should create a new SeniorManager class with the correct name, age, salary, team, and yearsInPosition properties", () => {
+    const seniorManager = new SeniorManager(
+      "Debu haldar",
+      50,
+      140000,
+      "problem solver",
+      10
+    );
+    expect(seniorManager.name).toBe("Debu haldar");
+    expect(seniorManager.age).toBe(50);
+    expect(seniorManager.salary).toBe(140000);
+    expect(seniorManager.team).toBe("problem solver");
+    expect(seniorManager.yearsInPosition).toBe(10);
+
+    const seniorManager2 = new SeniorManager(
+      "Adarsha",
+      50,
+      140000,
+      "teaching",
+      10
+    );
+    expect(seniorManager2.name).toBe("Adarsha");
+    expect(seniorManager2.age).toBe(50);
+    expect(seniorManager2.salary).toBe(140000);
+    expect(seniorManager2.team).toBe("teaching");
+    expect(seniorManager2.yearsInPosition).toBe(10);
+
+    expect(seniorManager2.hasOwnProperty("getDetails")).toBe(false);
+    expect(seniorManager2.hasOwnProperty("displayYearsInPosition")).toBe(false);
+
+    expect(SeniorManager.prototype.__proto__ === Manager.prototype).toBe(true);
+
+    global.score += 1;
+  });
+});
+
+// describe("Developer prototype", () => {
+//   test("getDetails should return correct string", () => {
+//     const developer = new Developer("Alice", 30, 90000, [
+//       "JavaScript",
+//       "React",
+//     ]);
+//     const expectedDetails =
+//       "Hi I am Alice and I am 30 years old and my salary is 90000 and I am a developer.";
+
+//     expect(developer.getDetails()).toBe(expectedDetails);
+//     global.score += 1;
+//   });
+
+//   test("addSkill should add skill correctly", () => {
+//     const developer = new Developer("Bob", 35, 100000, []);
+//     const addedSkill = "Node.js";
+
+//     expect(developer.addSkill(addedSkill)).toBe(
+//       `${addedSkill} added successfully.`
+//     );
+//     expect(developer.techStack).toEqual([addedSkill]);
+//     global.score += 1;
+//   });
+
+//   test("addSkill should throw an error for invalid input", () => {
+//     const developer = new Developer("Charlie", 40, 110000, []);
+
+//     expect(() => {
+//       developer.addSkill(123);
+//     }).toThrow("skill has to be non-empty string.");
+//     expect(developer.techStack).toEqual([]);
+//     global.score += 1;
+//   });
+
+//   test("removeSkill should remove skill correctly", () => {
+//     const developer = new Developer("David", 45, 120000, ["Java", "Spring"]);
+//     const removedSkill = "Spring";
+
+//     expect(developer.removeSkill(removedSkill)).toBe(
+//       `${removedSkill} removed successfully.`
+//     );
+//     expect(developer.techStack).toEqual(["Java"]);
+//     global.score += 1;
+//   });
+
+//   test("removeSkill should throw an error for invalid input", () => {
+//     const developer = new Developer("Eve", 50, 130000, ["React"]);
+
+//     expect(() => {
+//       developer.removeSkill(123);
+//     }).toThrow("skill has to be non-empty string.");
+//     expect(developer.techStack).toEqual(["React"]);
+//     global.score += 1;
+//   });
+
+//   test("should create a new Developer class with the correct name, age, salary, and techStack properties", () => {
+//     const developer = new Developer("Debobrota", 24, 240000, [
+//       "React",
+//       "javascript",
+//     ]);
+//     expect(developer.name).toBe("Debobrota");
+//     expect(developer.age).toBe(24);
+//     expect(developer.salary).toBe(240000);
+//     expect(developer.techStack).toEqual(["React", "javascript"]);
+
+//     const developer2 = new Developer("Adarsha", 25, 140000, [
+//       "Python",
+//       "Django",
+//     ]);
+//     expect(developer2.name).toBe("Adarsha");
+//     expect(developer2.age).toBe(25);
+//     expect(developer2.salary).toBe(140000);
+//     expect(developer2.techStack).toEqual(["Python", "Django"]);
+
+//     expect(developer2.hasOwnProperty("getDetails")).toBe(false);
+//     expect(developer2.hasOwnProperty("removeSkill")).toBe(false);
+//     expect(developer2.hasOwnProperty("addSkill")).toBe(false);
+//     expect(developer2.hasOwnProperty("getDetails")).toBe(false);
+
+//     expect(Manager.prototype.__proto__===Employee.prototype).toBe(true);
+
+//     global.score += 1;
+//   });
+// });
+
+afterAll(() => {
+  console.log("Final Score is", global.score);
+});

@@ -1,0 +1,17 @@
+.content{
+    display:flex;
+    flex-direction: column;
+    height:50vh;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    box-sizing:border-box;
+    padding:15%;
+    img{
+        width:15%;
+    }
+    p{
+        color:#6c6768;
+        font-size:20px;
+    }
+}

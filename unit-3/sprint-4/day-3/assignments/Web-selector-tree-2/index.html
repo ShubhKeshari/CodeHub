@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selector Tree</title>
+    <style>
+      .grandfather {
+        display: flex;
+        width: 95%;
+        height: 95vh;
+        border: 1px dashed;
+        gap: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .father {
+        display: flex;
+        width: 100%;
+        border: 1px dashed;
+        padding: 15px;
+        gap: 15px;
+      }
+      .father > .person {
+        border: 1px dashed;
+        display: flex;
+        padding: 15px;
+        gap: 15px;
+      }
+      .father > .person > .children {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid;
+        padding: 10px;
+        gap: 10px;
+      }
+      .father > .person > .children > div {
+        padding: 10px;
+        border: 1px dashed;
+        font-size: 40px;
+      }
+      .uncle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px dashed;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 10px;
+        padding: 15px;
+        text-align: center;
+      }
+      .uncle > .person {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border: 1px dashed;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .uncle > .person:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .uncle > .person > .children {
+        display: flex;
+        justify-content: center;
+        border: 1px solid;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .uncle > .person > .children:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .uncle > .person > .children > div {
+        display: flex;
+        justify-content: center;
+        border: 1px dashed;
+        width: 100%;
+        padding: 10px;
+        font-size: 40px;
+        box-sizing: border-box;
+      }
+      .uncle > .person > .children > div:nth-child(1) {
+        background-color: #ffa500;
+      }
+      .uncle > .person > .children > div:nth-child(3) {
+        background-color: #008000;
+      }
+      /* Add your css below */
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="grandfather">
+        Grandfather
+        <div class="father">
+          Father
+          <div class="person">
+            Person-1
+            <div class="children">Child-1</div>
+            <div class="children">Child-2</div>
+            <div class="children">
+              Child-3
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+            </div>
+          </div>
+        </div>
+        <div class="uncle">
+          Uncle
+          <div class="person">Person-1</div>
+          <div class="person">
+            Person-2
+            <div class="children">Child-1</div>
+            <div class="children">
+              Child-2
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+            </div>
+            <div class="children">Child-3</div>
+          </div>
+          <div class="person">Person-3</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+{"Monday":[],
+"Tueday":[],
+"Wednesday":[],
+"Thursday":[],
+"Friday":[],
+"Saturday":[],
+"Sunday":[],
+    "user":[
+    {
+      "name": "Rohit Kumar",
+      "birthday": "11/25/1996"
+    },
+    {
+      "name": "Sara Smith",
+      "birthday": "05/15/1989"
+    },
+    {
+      "name": "John Doe",
+      "birthday": "09/30/1975"
+    },
+    {
+      "name": "Emily Johnson",
+      "birthday": "03/10/2000"
+    },
+    {
+      "name": "David Brown",
+      "birthday": "07/20/1992"
+    },
+    {
+      "name": "Anna Wilson",
+      "birthday": "12/05/1984"
+    },
+    {
+      "name": "Michael Jones",
+      "birthday": "08/18/1978"
+    },
+    {
+      "name": "Sophia Martinez",
+      "birthday": "02/08/1995"
+    },
+    {
+      "name": "Ethan Taylor",
+      "birthday": "06/22/1986"
+    },
+    {
+      "name": "Emma Anderson",
+      "birthday": "10/12/1990"
+    },
+    {
+      "name": "William Clark",
+      "birthday": "04/01/1973"
+    },
+    {
+      "name": "Olivia White",
+      "birthday": "01/14/2002"
+    },
+    {
+      "name": "James Wilson",
+      "birthday": "07/29/1998"
+    },
+    {
+      "name": "Ava Johnson",
+      "birthday": "11/03/1982"
+    },
+    {
+      "name": "Daniel Lee",
+      "birthday": "09/05/1971"
+    },
+    {
+      "name": "Mia Garcia",
+      "birthday": "03/27/1993"
+    },
+    {
+      "name": "Alexander Rodriguez",
+      "birthday": "05/09/1987"
+    },
+    {
+      "name": "Charlotte Martinez",
+      "birthday": "08/24/1976"
+    },
+    {
+      "name": "Noah Hernandez",
+      "birthday": "12/18/1999"
+    },
+    {
+      "name": "Abigail Nguyen",
+      "birthday": "06/07/1980"
+    }
+  ]
+}

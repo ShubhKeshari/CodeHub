@@ -1,0 +1,40 @@
+All users whose gender is male
+
+db.employeeDetails.find({gender:"Male"})
+
+all users whose ID is even
+
+db.employeeDetails.find({ id: { $mod: [2, 0] } })
+
+Users who currently live in Japan
+
+db.employeeDetails.find({native:"Japan"}) 
+
+Users who are female and live in India
+
+db.employeeDetails.find({$and:[{gender:"Female"},{native:"India"}]})
+
+Users who are more than 25 years old
+
+db.employeeDetails.find({age:{$gt:25}})
+
+Users who are less than 50 years old and live in United State
+
+db.employeeDetails.find({$and:[{age:{$lt:50}},{native:"United States"}]})
+
+Total number of users who want to relocate to France (count only)
+
+ db.employeeDetails.aggregate([{$match:{relocate_to:"France"}},{$count:"totalCount"}])
+
+OR
+
+ db.employeeDetails.aggregate([{$match:{ "relocate_to": "France"}},{$group:{_id:"$relocate_to",totalUsers:{$sum:1}}},{$project:{_id:0,totalUsers:1}}])
+
+
+Total number of users who are from USA and want to relocate to russia, sort them by age in ascending order
+
+ db.employeeDetails.aggregate([{$match:{ $and:[{native:"United States"},{relocate_to:"Russia"}]}},{$sort:{age:1}}])
+
+get all users, sort them by total number of family member ASC and age DESC order
+
+db.employeeDetails.aggregate([{$sort:{family_members:1,age:-1}}])

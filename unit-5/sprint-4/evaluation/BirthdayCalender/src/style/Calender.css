@@ -1,0 +1,11 @@
+.calender-box{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+  }
+  .calender-box>div{
+    width:200px;
+    border:1px solid red;
+    
+   
+  }

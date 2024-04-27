@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function AddTodo({ handleTask }) {
+      let [title, updatetitle] = React.useState("");
+      let [description, updatedescription] = React.useState("");
+      function handleChnage1(e) {
+        updatetitle(e.target.value);
+      }
+      function handleChnage2(e) {
+        updatedescription(e.target.value);
+      }
+      function handleClick(e) {
+          e.preventDefault();
+        handleTask(title,description);
+      }
+
+      return (
+        <form  onSubmit={handleClick}>
+          <input type="text" placeholder="InputTitle" onChange={handleChnage1} value={title} />
+          <input type="text" placeholder="Input Description" onChange={handleChnage2} value={description} />
+          <button type="submit">Add Task</button>
+        </form>
+      );
+    }
+//for UI update
+    function TodoList({ tasks, toggleTask, deleteTask }) {
+      return (
+        <div>
+          {tasks.map((ele) => {
+            return (
+              <div>
+                <p>{ele.title}</p>
+                <p>{ele.description}</p>
+                <button onClick={() => toggleTask(ele.id)}>
+                  {ele.status ? "Complete" : "Pending"}
+                </button>
+                <button onClick={() => deleteTask(ele.id)}>Delete</button>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+
+    function TodoApp() {
+      const [tasks, setTasks] = React.useState([]);
+
+      function handleTask(title,description) {
+        setTasks([...tasks, { id: Date.now(), title: title, description:description, status: false }]);
+      }
+      function toggleTask(id) {
+        let newState = tasks.map((ele) =>
+          ele.id == id ? { ...ele, status: !ele.status } : ele
+        );
+        setTasks(newState);
+      }
+
+      function deleteTask(id) {
+        let newState = tasks.filter((ele) => ele.id != id);
+        setTasks(newState);
+      }
+
+      return (
+        <>
+          <AddTodo handleTask={handleTask} />
+          <TodoList
+            tasks={tasks}
+            toggleTask={toggleTask}
+            deleteTask={deleteTask}
+          />
+        </>
+      );
+    }
+    ReactDOM.render(<TodoApp/>,document.getElementById("root"));
+  </script>
+</html>

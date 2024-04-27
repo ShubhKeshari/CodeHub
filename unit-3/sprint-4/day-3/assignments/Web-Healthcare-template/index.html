@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-101 C2</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        margin: 10px 50px 20px 50px;
+      }
+      .headings {
+        text-align: center;
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      @media all and (max-width: 1023px) {
+        .services {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .discover {
+          flex-direction: column;
+        }
+      }
+      .services > div {
+        display: flex;
+        padding: 15px 10px 15px 10px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        gap: 30px;
+      }
+      @media all and (max-width: 600px) {
+        .services > div {
+          flex-direction: column;
+        }
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .card > p:nth-of-type(1) {
+        font-weight: 900;
+      }
+      .card > p:nth-of-type(2) {
+        color: #948787;
+      }
+      .card > div:nth-of-type(1) {
+        color: white;
+        width: 170px;
+        background-color: #3b63f6;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .discover {
+        display: flex;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        gap: 100px;
+      }
+      .discchild > p {
+        width: 100%;
+        text-align: center;
+      }
+      .discchild {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 15px 30px 30px 30px;
+        gap: 10px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      .discchild > img {
+        width: 50%;
+        height: 50%;
+      }
+      .doctors {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        display: flex;
+        gap: 30px;
+      }
+      .doctors > div:nth-child(1) > p:nth-of-type(3) {
+        text-align: start;
+      }
+      .doctors > div:nth-child(1) > div:nth-of-type(1) {
+        color: white;
+        width: 100px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: #3b63f6;
+      }
+      .doctors > div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .doctors > div:nth-child(2) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+      .doctors > div:nth-child(2) > div > img {
+        width: 150px;
+      }
+      .doctors > div:nth-child(2) > div {
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 10px;
+      }
+      @media all and (max-width: 1023px) {
+        .doctors {
+          flex-direction: column;
+        }
+      }
+      @media all and (max-width: 600px) {
+        .doctors > div:nth-child(2) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="headings">
+        <h1>North East Largest Network For Health Care</h1>
+        <p>Find best doctors across specialities or hospitals in your city.</p>
+      </div>
+      <div class="services">
+        <!-- 4 divs should be here -->
+        <div>
+          <img
+            src="https://www.quickobook.com/assets/img/promo_test.jpg"
+            alt="Doctor Imgae"
+          />
+          <div class="card">
+            <p>Book Lab Test</p>
+            <p>It's fast, easy and secure</p>
+            <div>Find Diagnostic Center</div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="https://www.quickobook.com/assets/img/promo_test.jpg"
+            alt="Doctor Imgae"
+          />
+          <div class="card">
+            <p>Book Lab Test</p>
+            <p>It's fast, easy and secure</p>
+            <div>Find Diagnostic Center</div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="https://www.quickobook.com/assets/img/promo_test.jpg"
+            alt="Doctor Imgae"
+          />
+          <div class="card">
+            <p>Book Lab Test</p>
+            <p>It's fast, easy and secure</p>
+            <div>Find Diagnostic Center</div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="https://www.quickobook.com/assets/img/promo_test.jpg"
+            alt="Doctor Imgae"
+          />
+          <div class="card">
+            <p>Book Lab Test</p>
+            <p>It's fast, easy and secure</p>
+            <div>Find Diagnostic Center</div>
+          </div>
+        </div>
+      </div>
+      <div class="headings">
+        <h1>Discover the Online Appointment!</h1>
+        <p>
+          A step-by-step guide to build an on-demand appointment for patients
+        </p>
+      </div>
+      <div class="discover">
+        <!-- Three divs should be inside here  -->
+        <div class="discchild">
+          <img
+            src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-08-04/Screenshot%202022-08-03%20at%207.53.30%20PM_498205.png"
+            alt="image"
+          />
+          <h3>FIND A Doctor</h3>
+          <p>
+            With more than 1000+ doctors and on mission to provide best care
+            Health CARE SERVICES
+          </p>
+        </div>
+        <div class="discchild">
+          <img
+            src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-08-04/Screenshot%202022-08-03%20at%207.53.30%20PM_498205.png"
+            alt="image"
+          />
+          <h3>FIND A Doctor</h3>
+          <p>
+            With more than 1000+ doctors and on mission to provide best care
+            Health CARE SERVICES
+          </p>
+        </div>
+        <div class="discchild">
+          <img
+            src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-08-04/Screenshot%202022-08-03%20at%207.53.30%20PM_498205.png"
+            alt="image"
+          />
+          <h3>FIND A Doctor</h3>
+          <p>
+            With more than 1000+ doctors and on mission to provide best care
+            Health CARE SERVICES
+          </p>
+        </div>
+      </div>
+      <div class="doctors">
+        <!-- Two divs should be here and inside the second div 4 divs should be  -->
+        <div>
+          <h3>Book Our Doctor</h3>
+          <p>Quick appointments with doctors</p>
+          <p>Quickbook is an onlen portal for all your healthcare needs</p>
+          <p>
+            Our team of medical experts is there for you, from finding the right
+            doctors and hospitals to booking appointments and giving any kind of
+            medical help in between.
+          </p>
+          <div>View All</div>
+        </div>
+        <div>
+          <div>
+            <img
+              src="https://www.quickobook.com/uploads/profiles/default_avatar.png"
+              alt="placeholder image"
+            />
+            <h3>Dr. S.K. Sen</h3>
+            <p>Dentist</p>
+          </div>
+          <div>
+            <img
+              src="https://www.quickobook.com/uploads/profiles/default_avatar.png"
+              alt="placeholder image"
+            />
+            <h3>Dr. S.K. Sen</h3>
+            <p>Dentist</p>
+          </div>
+          <div>
+            <img
+              src="https://www.quickobook.com/uploads/profiles/default_avatar.png"
+              alt="placeholder image"
+            />
+            <h3>Dr. S.K. Sen</h3>
+            <p>Dentist</p>
+          </div>
+          <div>
+            <img
+              src="https://www.quickobook.com/uploads/profiles/default_avatar.png"
+              alt="placeholder image"
+            />
+            <h3>Dr. S.K. Sen</h3>
+            <p>Dentist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

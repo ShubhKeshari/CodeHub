@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Code goes here
+    const TodoList = ({todoData, handleDelete, handleToggle})=>{
+        return (
+            <>
+                <p>Todo List</p>
+                <ul>
+                {
+                 todoData.map((item)=>{
+                    return (
+                        <div key = {item.id}>
+                            <p>{item.title}</p>
+                            <button onClick={handleDelete(item.id)}>Delete</button>
+                            <button onClick={handleToggle(item.id)}>{item.status?"Complete":"Pending"}</button>
+                        </div>
+                    );
+                 })
+                }
+                </ul>
+            </>
+        )
+    };
+    const AddTodo = ({handleTasks})=>{
+        const[data, setData] = React.useState("");
+        
+        const handleChange = (e)=>{
+
+            setData(prev=>e.target.value);
+        };
+        const handleSubmit=(e)=>{
+            e.preventDefault();
+    
+            handleTasks(data);
+            setData("");
+        };
+        return (
+            <form onSubmit={handleSubmit}>
+                <input type="text" value = {data} onChange={handleChange}/>
+                <button type="submit" >AddTodo</button>
+            </form>
+        );
+    };
+    const TodoApp = () => {
+        const [todoData, setTodoData] = React.useState([]);
+        const handleTasks = (data)=>{
+            setTodoData([...todoData,{id:Date.now(), title:data, status:false}]);
+        };
+        const handleDelete = (id)=>{
+            return ()=>{
+                setTodoData(todoData.filter(item=>item.id!==id));
+            }
+        };
+        const handleToggle = (id)=>{
+            return ()=>{
+                setTodoData(todoData.map(item=>{
+                    if(item.id===id){
+                        return {...item, status:!item.status};
+                    }
+                    return item;
+                }));
+            }
+        };
+      return (
+        <>
+          <AddTodo handleTasks={handleTasks}/>
+          <TodoList todoData={todoData} handleDelete={handleDelete} handleToggle={handleToggle}/>
+        </>
+      );
+    };
+    const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<TodoApp />);
+  </script>
+</html>

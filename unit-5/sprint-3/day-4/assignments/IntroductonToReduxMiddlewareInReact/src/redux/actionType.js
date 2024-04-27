@@ -1,0 +1,1 @@
+export const LOGGED_PAYLOAD = 'LOGGED_PAYLOAD';

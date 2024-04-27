@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 100%;
+        height: 70vh;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        > p {
+          font-size: 40px;
+          font-weight: 700;
+          color: transparent;
+          background: linear-gradient(to bottom, #7a1149, #b496b9);
+          background-clip: text;
+        }
+        .box {
+          display: flex;
+          gap: 100px;
+        }
+        .box > div {
+          width: 200px;
+          height: 250px;
+        }
+        .box > div:nth-child(1) {
+          background-color: rgb(206, 206, 28);
+          border: 2px solid yellow;
+        }
+        .box > div:nth-child(2) {
+          background-color: palevioletred;
+          border: 2px solid purple;
+        }
+        .box > div:nth-child(3) {
+          background-color: rgb(223, 35, 35);
+          border: 2px solid red;
+        }
+        .box > div:nth-child(4) {
+          background-color: lightgreen;
+          border: 2px solid green;
+        }
+        .box:hover > :not(:hover) {
+          opacity: 0.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>CAT CARDS</p>
+      <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

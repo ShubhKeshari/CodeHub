@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/999e67b48c.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      footer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+          "a b b"
+          "c c c";
+      }
+      @media all and (max-width: 1023px) {
+        footer {
+          grid-template-columns: repeat(1, 1fr);
+          grid-template-areas:
+            "b"
+            "a"
+            "c";
+        }
+      }
+      @media all and (max-width: 1023px) {
+        footer > div:nth-child(1) {
+          flex-direction: row;
+        }
+      }
+      @media all and (max-width: 1023px) {
+        footer > div:nth-child(3) {
+          flex-direction: column;
+        }
+      }
+      footer > div:nth-child(1) {
+        grid-area: a;
+        background-color: #122868;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        > div {
+          display: grid;
+          place-items: center;
+          height: 100px;
+          width: 100px;
+          background-color: #f1641e;
+          color: white;
+          font-size: 40px;
+          border-radius: 10px;
+        }
+        > button {
+          box-sizing: border-box;
+          padding: 15px;
+          border: none;
+          border-radius: 40px;
+          color: white;
+          font-weight: 700;
+          background-color: #3140af;
+        }
+      }
+      footer > div:nth-child(2) {
+        grid-area: b;
+        background-color: #3140af;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 20px;
+      }
+      footer > div:nth-child(2) > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 10px;
+        box-sizing: border-box;
+
+        > a {
+          text-decoration: none;
+          color: white;
+        }
+        > h2 {
+          color: white;
+        }
+      }
+      .icon {
+        display: flex;
+        gap: 20px;
+        font-size: 20px;
+      }
+      footer > div:nth-child(3) {
+        grid-area: c;
+        color: white;
+        background-color: #222222;
+        box-sizing: border-box;
+        display: flex;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        > div:nth-child(1) {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+        > div:nth-child(2) {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          > a {
+            color: white;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <footer>
+      <div>
+        <div>Etsy</div>
+        <button>Download the Etsy App</button>
+      </div>
+      <div>
+        <div>
+          <h2>Shop</h2>
+          <a href="#">Gift Cards</a><a href="#">Etsy Registry</a
+          ><a href="#">SiteMap</a>
+          <a href="#">Etsy blog</a>
+          <a href="#">Etsy United Kingdom</a>
+          <a href="#">Etsy Germany</a>
+          <a href="#">Etsy Canada</a>
+        </div>
+        <div>
+          <h2>Sell</h2>
+          <a href="#">Sell on Etsy</a>
+          <a href="#">Teams</a>
+          <a href="#">Forums</a>
+          <a href="#">Affiliates $ Creators</a>
+        </div>
+        <div>
+          <h2>About</h2>
+          <a href="#">Etsy Inc.</a>
+          <a href="#">Policies</a>
+          <a href="#">Investors</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Impact</a>
+          <a href="#">Leagal Impriment</a>
+        </div>
+        <div>
+          <h2>Help</h2>
+          <a href="#">Help Centre</a>
+          <a href="#">Privacy Settings</a>
+          <a class="icon" href="#"
+            ><i class="fa-brands fa-instagram"></i
+            ><i class="fa-brands fa-square-facebook"></i
+            ><i class="fa-brands fa-pinterest"></i
+            ><i class="fa-brands fa-twitter"></i
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+      <div>
+        <div>
+          <i class="fa-solid fa-flag"></i>
+          <p>India</p>
+          <p>|</p>
+          <p>English(In)</p>
+          <p>|</p>
+          <p><i class="fa-solid fa-indian-rupee-sign"></i>(INR)</p>
+        </div>
+        <div>
+          <p><i class="fa-solid fa-at"></i>2023 Etsy. Inc.</p>
+          <a href="#">Terms of use</a>
+          <a href="#">Privacy</a>
+          <a href="#">Interest-based ads</a>
+          <a href="#">Local Shops</a>
+          <a href="#">Regions</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

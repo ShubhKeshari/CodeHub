@@ -1,0 +1,59 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Product A",
+      "price": 20,
+      "quantity": 50
+    },
+    {
+      "id": 2,
+      "title": "Product B",
+      "price": 15,
+      "quantity": 30
+    },
+    {
+      "id": 3,
+      "title": "Product C",
+      "price": 25,
+      "quantity": 20
+    },
+    {
+      "id": 4,
+      "title": "Product D",
+      "price": 26,
+      "quantity": 18
+    },
+    {
+      "id": 5,
+      "title": "Product E",
+      "price": 28,
+      "quantity": 22
+    },
+    {
+      "id": 6,
+      "title": "Product F",
+      "price": 32,
+      "quantity": 5
+    },
+    {
+      "id": 7,
+      "title": "Product G",
+      "price": 79,
+      "quantity": 32
+    },
+    {
+      "id": 8,
+      "title": "Product H",
+      "price": 80,
+      "quantity": 18
+    },
+    {
+      "id": 9,
+      "title": "Product I",
+      "price": 39,
+      "quantity": 10
+    }
+  ],
+  "inventory":[]
+}

@@ -1,0 +1,3 @@
+ManualAssignment01_Promise: https://codepen.io/ljhnfpdv-the-bashful/pen/MWxqmVy?editors=0012
+
+ManualAssignment02_Timer: https://codepen.io/ljhnfpdv-the-bashful/pen/MWxqvaq?editors=0010

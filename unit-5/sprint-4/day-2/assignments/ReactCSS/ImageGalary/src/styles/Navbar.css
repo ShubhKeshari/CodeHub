@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  gap: 20px;
+  color: white;
+  height: 60px;
+}
+.navHome{
+  list-style:none;
+}
+.navbar a {
+  text-decoration: none;
+  color:white;
+}
+.navbar a:active {
+  color: red; /* Color when the link is being activated (clicked) */
+}
+
+.navbar-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-menu li {
+  margin-right: 20px;
+}
+
+.navbar-toggle {
+  display: none; /* Initially hide the toggle button */
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    justify-content: space-between;
+  }
+  .navbar-menu {
+    display: none; /* By default Hide the menu items */
+  }
+
+  .navbar-toggle {
+    display: block; /* Show the toggle button when screen size is below 1024px */
+  }
+  .navbar-menu.show {
+    display: flex; /* Show the menu items when the toggle button is clicked */
+    flex-direction: column;
+    position: absolute;
+    top: 59px; /* Adjust as needed */
+    left:0px;
+    padding-left:10px;
+    background-color: #333;
+    width: 100%;
+  }
+  .navbar-menu.show li {
+    margin: 10px 0;
+  }
+}

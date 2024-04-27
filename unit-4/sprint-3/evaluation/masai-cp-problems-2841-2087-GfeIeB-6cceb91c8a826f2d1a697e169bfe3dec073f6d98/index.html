@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/skeleton.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Masai-Library App</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <h1>Masai Library 📔</h1>
+          <i>Masai-Library</i>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns four sidebar-one" id="sidebar-one">
+          <h4>Add Books</h4>
+          <input
+            type="text"
+            id="book-title"
+            class="u-full-width"
+            placeholder="title"
+          />
+          <input
+            type="text"
+            id="book-image"
+            class="u-full-width"
+            placeholder="image"
+          />
+          <input
+            type="text"
+            id="book-author"
+            class="u-full-width"
+            placeholder="author"
+          />
+          <input
+            type="number"
+            id="book-publication-year"
+            class="u-full-width"
+            placeholder="publication_year"
+          />
+          <input
+            type="text"
+            id="book-characters"
+            class="u-full-width"
+            placeholder="characters"
+          />
+          <input
+            type="number"
+            id="book-price"
+            class="u-full-width"
+            placeholder="price"
+          />
+          <input
+            type="text"
+            id="book-genre"
+            class="u-full-width"
+            placeholder="genre"
+          />
+          <button id="add-book" class="u-full-width button button-primary">
+            Add Books
+          </button>
+          <hr />
+
+          <h4>update all fields of Books</h4>
+          <input
+            type="text"
+            id="update-book-id"
+            class="u-full-width"
+            placeholder="ID"
+          />
+          <input
+            type="text"
+            id="update-book-title"
+            class="u-full-width"
+            placeholder="title"
+          />
+          <input
+            type="text"
+            id="update-book-image"
+            class="u-full-width"
+            placeholder="image"
+          />
+          <input
+            type="text"
+            id="update-book-author"
+            class="u-full-width"
+            placeholder="author"
+          />
+          <input
+            type="number"
+            id="update-book-publication-year"
+            class="u-full-width"
+            placeholder="publication_year"
+          />
+          <input
+            type="text"
+            id="update-book-characters"
+            class="u-full-width"
+            placeholder="characters"
+          />
+          <input
+            type="number"
+            id="update-book-price"
+            class="u-full-width"
+            placeholder="price"
+          />
+          <input
+            type="text"
+            id="update-book-genre"
+            class="u-full-width"
+            placeholder="genre"
+          />
+          <button id="update-book" class="u-full-width button button-primary">
+            Update all fields
+          </button>
+          <hr />
+
+          <h4>update only price</h4>
+          <input
+            type="text"
+            id="update-price-book-id"
+            class="u-full-width"
+            placeholder="ID"
+          />
+          <input
+            type="number"
+            id="update-price-book-price"
+            class="u-full-width"
+            placeholder="price"
+          />
+          <button
+            id="update-price-book"
+            class="u-full-width button button-primary"
+          >
+            Update book price
+          </button>
+          <hr />
+
+          <h4>Sort Based On price</h4>
+          <button
+            id="sort-low-to-high"
+            class="u-full-width button button-primary"
+          >
+            Sort Low To High
+          </button>
+          <button
+            id="sort-high-to-low"
+            class="u-full-width button button-primary"
+          >
+            Sort High To Low
+          </button>
+          <hr />
+
+          <h4>Filter Based On genre</h4>
+          <button id="filter-science-fiction" class="u-full-width button button-primary">
+            Science Fiction
+          </button>
+          <button id="filter-Fantasy" class="u-full-width button button-primary">
+            Fantasy
+          </button>
+        </div>
+
+        <div class="columns eight main">
+          <div class="search-books-wrapper" id="search-books-wrapper">
+            <select id="search-by-select">
+              <option value="">Search By</option>
+              <option value="title">title</option>
+              <option value="author">author</option>
+            </select>
+            <input
+              type="text"
+              id="search-by-input"
+              placeholder="Enter title/author here"
+            />
+            <button
+              id="search-by-button"
+              style="background-color: #33c3f0; color: white; border: none"
+            >
+              Search
+            </button>
+          </div>
+          <div class="data-list-wrapper" id="data-list-wrapper">
+            <!-- append card-list that includes card here -->
+          </div>
+          <div class="pagination-wrapper" id="pagination-wrapper">
+            <!-- append the pagination button here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts/index.js" type="module"></script>
+  </body>
+</html>

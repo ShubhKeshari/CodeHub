@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": "57fe",
+      "title": "Do Assignment for react",
+      "status": "pending"
+    },
+    {
+      "id": "eb3a",
+      "title": "Do DSA assignment",
+      "status": "completed"
+    },
+    {
+      "id": "1fe3",
+      "title": "Yoga",
+      "status": "completed"
+    }
+  ]
+}

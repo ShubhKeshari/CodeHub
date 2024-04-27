@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/babel">
+        // Your task starts here
+        const Navbar = ({ totalCourses }) => {
+      return (
+        <div className = "nav">
+          <h2>Masai Courses</h2>
+          <p>Course count: {totalCourses}</p>
+        </div>
+      );
+    };
+    const CourseInput = ({ postData }) => {
+      let initState = {
+        title: "",
+        image: "",
+        description: "",
+        instructor: "",
+        ongoing: false,
+        duration: "",
+        level: "",
+        courseFee: "",
+      };
+      const [data, setData] = React.useState(initState);
+      const handleChange = (e) => {
+        let input = e.target;
+        let name = input.name;
+        let value = input.type == "checkbox" ? input.checked : input.value;
+        setData({ ...data, [name]: value });
+      };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(data);
+        postData(data);
+      };
+      return (
+        <form className = "sideBar" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="image"
+            placeholder="image"
+            onChange={handleChange}
+          />
+          <textarea
+            name="description"
+            rows="5"
+            cols="25"
+            onChange={handleChange}
+            placeholder="Topics"
+          ></textarea>
+          <select name="instructor" onChange={handleChange}>
+            <option value="">Select Instructor</option>
+            <option value="Instructor1">Instructor1</option>
+            <option value="Instructor2">Instructor2</option>
+            <option value="Instructor3">Instructor3</option>
+          </select>
+          <label>
+            <input type="checkbox" name="ongoing" onChange={handleChange} />
+            Ongoing
+          </label>
+          <input
+            type="number"
+            name="duration"
+            min="0"
+            onChange={handleChange}
+            placeholder="Duration in hours"
+          />
+          <select name="level" onChange={handleChange}>
+            <option value="">Select Level</option>
+            <option value="Level1">Level 1</option>
+            <option value="Level2">Level 2</option>
+            <option value="Level3">Level 3</option>
+            <option value="Level4">Level 4</option>
+            <option value="Level5">Level 5</option>
+            <option value="Level6">Level 6</option>
+            <option value="Level7">Level 7</option>
+            <option value="Level8">Level 8</option>
+            <option value="Level9">Level 9</option>
+            <option value="Level10">Level 10</option>
+          </select>
+          <input
+            type="text"
+            name="courseFee"
+            onChange={handleChange}
+            placeholder="CourseFee"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      );
+    };
+    const CourseList = ({ data }) => {
+      return (
+        <div className="card">
+          {data.map((item) => {
+            return (
+              <div className="card-body" key={item.id}>
+                <h5 className="card-title">{item.title}</h5>
+                <p className="card-text">{item.description}</p>
+                <p className="card-text">Instructor: {item.instructor}</p>
+                <p className="card-text">Ongoing: {item.ongoing}</p>
+                <p className="card-text">Duration: {item.duration}</p>
+                <p className="card-text">Level: {item.level}</p>
+                <p className="card-text">CourseFee: {item.courseFee}</p>
+              </div>
+            );
+          })}
+        </div>
+      );
+    };
+    const App = () => {
+      const [courses, setCourses] = React.useState([]);
+
+      const postData = (data) => {
+        axios
+          .post("http://localhost:8080/courses", data)
+          .then((res) => {
+            console.log(res);
+            setCourses([...courses, res.data]);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      const totalCourses = () => {
+        axios
+          .get("http://localhost:8080/courses")
+          .then((res) => {
+            console.log(res);
+            setCourses(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      console.log(courses);
+      return (
+        <>
+          <Navbar totalCourses={courses.length} />
+          <CourseInput postData={postData} />
+          <CourseList data={courses} />
+        </>
+      );
+    };
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
+  </script>
+</html>

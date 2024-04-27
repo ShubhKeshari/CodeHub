@@ -1,0 +1,46 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #add8e6;
+  margin-left: 200px;
+}
+
+.item-1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid green;
+}
+
+.item-2 {
+  width: 200px;
+  height: 100px;
+  border: 1px solid blue;
+}
+
+.item-3 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid green;
+}
+
+.item-4 {
+  width: 400px;
+  height: 100px;
+  border: 1px solid blue;
+}
+
+.item-5 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid green;
+}
+
+.item-6 {
+  width: 600px;
+  height: 100px;
+  border: 1px solid blue;
+}/*# sourceMappingURL=styles.css.map */

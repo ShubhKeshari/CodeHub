@@ -1,0 +1,107 @@
+
+.cardB {
+    height: auto;
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-img-topB {
+    height: 250px;
+    width: 100%; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover; 
+  }
+  
+  .card-bodyB {
+    padding: 20px;
+    flex: 1; 
+  }
+  
+  .card-titleB {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-textB {
+    font-size: 1rem; 
+    margin-bottom: 10px;
+  }
+  
+  .btn-primaryB {
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:black;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn-primaryB:hover {
+    background-color:white;
+    color: black;
+  }
+  
+  .btn-primaryB:active {
+    transform: translateY(1px);
+  }
+  
+
+  @media (max-width: 350px) {
+    .cardB {
+      width: 90%;
+    }
+    
+    .card-img-topB {
+      height: 200px;
+    }
+    
+    .card-titleB {
+      font-size: 1.3rem;
+    }
+    
+    .card-textB {
+      font-size: 0.9rem;
+    }
+    
+    .btn-primaryB {
+      font-size: 0.9rem;
+      height: 35px;
+    }
+  }
+  
+ 
+  @media (min-width:350px) and (max-width:  769px) {
+    .cardB {
+      width: 70%;
+    }
+    
+    .card-img-topB {
+      height: 300px;
+    }
+    
+    .card-titleB {
+      font-size: 1.7rem;
+    }
+    
+    .card-textB {
+      font-size: 1.1rem;
+    }
+    
+    .btn-primaryB {
+      font-size: 1rem;
+      height: 45px;
+    }
+  }
+  
+ 

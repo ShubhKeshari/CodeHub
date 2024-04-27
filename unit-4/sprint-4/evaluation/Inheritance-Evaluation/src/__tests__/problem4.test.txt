@@ -1,0 +1,64 @@
+const { Product } = require("../problem4");
+
+global.score = 0;
+
+describe("Product", () => {
+  test("should create a new Product instance with the correct name, price, and discount properties", () => {
+    const product = new Product("Laptop", 1000, 10);
+    expect(product.name).toBe("Laptop");
+    expect(product.getPrice).toBe(1000);
+    expect(product.getDiscount).toBe(10);
+
+    global.score += 1;
+  });
+
+  test("getDiscountedPrice should return the correct discounted price", () => {
+    const product = new Product("Phone", 500, 20);
+    expect(product.getDiscountedPrice()).toBe(400);
+
+    const product2 = new Product("Laptop", 1000, 10);
+    expect(product2.getDiscountedPrice()).toBe(900);
+    global.score += 1;
+  });
+
+  test("setPrice and getPrice should working correctly ", () => {
+    const product = new Product("Tablet", 300, 15);
+    product.setPrice = 250;
+    expect(product.getPrice).toBe(250);
+
+    const product2 = new Product("Laptop", 1000, 10);
+    expect(product2.getPrice).toBe(1000);
+
+    global.score += 0.5;
+  }); 
+
+  test("setPrice should throw an error for non-number price and for negetive price", () => {
+    const product2 = new Product("Chair", 50, 5);
+    expect(() => {
+      product2.setPrice = -100;
+    }).toThrow("price has to be positive number only");
+    
+    const product = new Product("Monitor", 200, 10);
+    expect(() => {
+      product.setPrice = "invalid";
+    }).toThrow("price has to be positive number only");
+    global.score += 1;
+  });
+
+  test("should return the discount percentage of the product", () => {
+    const product = new Product("Phone", 500, 20);
+    expect(product.getDiscount).toBe(20);
+    global.score += 0.5;
+  });
+
+  test("should calculate and return the total discount for the given product", () => {
+    const product = new Product("Tablet", 300, 15);
+    const totalDiscount = Product.calculateTotalDiscount(product);
+    expect(totalDiscount).toBe(45);
+    global.score += 1;
+  });
+});
+
+afterAll(() => {
+  console.log("Final Score is", global.score);
+});

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Handling in React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your task starts here
+    function FormWithState() {
+      const [inputName, setInputName] = React.useState("");
+      const [inputAge, setInputAge] = React.useState("");
+      const [submittedName, setSubmittedName] = React.useState("");
+      const [submittedAge, setSubmittedAge] = React.useState("");
+      function handleChangeName(event) {
+        setInputName(event.target.value);
+      }
+      function handleChangeAge(event) {
+        setInputAge(event.target.value);
+      }
+      function handleSubmit(event) {
+        event.preventDefault();
+        setSubmittedName(inputName);
+        setSubmittedAge(inputAge);
+        setInputName("");
+        setInputAge("");
+      }
+      return (
+        <form>
+          <input type="text" value={inputName} onChange={handleChangeName} />
+          <br />
+          <input type="number" value={inputAge} onChange={handleChangeAge} />
+          <br />
+          <button type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
+          <p>
+            Name: {submittedName} <br />
+            Age:{submittedAge}
+          </p>
+        </form>
+      );
+    }
+    function App() {
+      return <FormWithState />;
+    }
+    const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+    reactRoot.render(<App />);
+  </script>
+</html>

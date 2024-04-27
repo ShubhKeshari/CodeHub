@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic List Rendering</title>
+    <style>
+    /* Grid layout css */
+      .grid-layout {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        width: 50%;
+      }
+      /* image css */
+      img {
+        height: 250px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your ItemList component code will go here
+      const Image = ({ src }) => {
+        return <img src={src} alt="PandaImage" />;
+      };
+    //   Gallary with children prop
+      const Gallary = ({ children }) => {
+        return <div className="grid-layout">{children}</div>;
+      };
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(
+        <Gallary>
+          <Image
+            src={
+              "https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg"
+            }
+          />
+          <Image
+            src={
+              "https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg"
+            }
+          />
+          <Image
+            src={
+              "https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg"
+            }
+          />
+          <Image
+            src={
+              "https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg"
+            }
+          />
+          <Image
+            src={
+              "https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg"
+            }
+          />
+          <Image
+            src={
+              "https://img.freepik.com/premium-photo/cute-baby-panda-bear-with-big-eyes-3d-rendering-cartoon-illustration_691560-4917.jpg"
+            }
+          />
+        </Gallary>
+      );
+    </script>
+  </body>
+</html>

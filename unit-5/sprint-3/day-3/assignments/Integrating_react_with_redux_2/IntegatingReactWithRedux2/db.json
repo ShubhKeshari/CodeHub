@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": "8a24",
+      "title": "Do assignment",
+      "status": "pending"
+    },
+    {
+      "id": "cc43",
+      "title": "Do Yoga",
+      "status": "in-progress"
+    },
+    {
+      "id": "3ea8",
+      "title": "Do DSA Assignment",
+      "status": "pending"
+    }
+  ]
+}

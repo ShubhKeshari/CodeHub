@@ -1,0 +1,29 @@
+div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#add8e6;
+    margin-left:200px;
+}
+@mixin cir($width,$height){
+    width:$width;
+    height:$height;
+    border-radius:50%;
+    border:1px solid green;
+    
+}
+@mixin rectangle($width, $height){
+    width:$width;
+    height:$height;
+    border:1px solid blue;
+    
+}
+ @for$i from 1 through 6 {
+    .item-#{$i}{
+        @if $i%2!=0{
+            @include cir(100px,100px);
+        }@else{
+            @include rectangle($i*100px, 100px);
+        }
+    }
+ }

@@ -1,0 +1,43 @@
+{
+    "trades":[{
+        "id":1,
+        "type": "buy",
+        "user_id": 23,
+        "symbol": "ABX",
+        "shares": 30,
+        "price": 134
+    },
+    {
+        "id":2,
+        "type": "sell",
+        "user_id": 25,
+        "symbol": "CJX",
+        "shares": 25,
+        "price": 102
+    },
+    {
+        "id":3,
+        "type": "buy",
+        "user_id": 33,
+        "symbol": "GLY",
+        "shares": 18,
+        "price": 150
+    },
+    {
+        "id":4,
+        "type": "sell",
+        "user_id": 38,
+        "symbol": "ACN",
+        "shares": 15,
+        "price": 120
+    },
+    {
+        "id":5,
+        "type": "sell",
+        "user_id": 29,
+        "symbol": "GHK",
+        "shares": 24,
+        "price": 110
+    }
+]
+}

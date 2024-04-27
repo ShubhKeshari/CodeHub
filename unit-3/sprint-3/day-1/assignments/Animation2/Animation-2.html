@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation-2</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        height: 80vh;
+        width: 80%;
+        box-sizing: border-box;
+        margin: 50px auto;
+        border: 5px solid black;
+        padding-bottom: 100px;
+      }
+      .box > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 25px;
+        background: linear-gradient(to right, #000058, #00bbeb);
+      }
+      .box-1 {
+        height: 25%;
+        position: relative;
+        left: 0;
+        border-radius: 0px 15px 15px 0px;
+        animation: b13 1s forwards;
+      }
+      .box-2 {
+        height: 25%;
+        border-radius: 15px 0px 0px 15px;
+        position: relative;
+        left: 50%;
+        animation: b24 1s forwards;
+      }
+      .box-3 {
+        height: 25%;
+        border-radius: 0px 15px 15px 0px;
+        position: relative;
+        top: 0%;
+        animation: b13 1s forwards;
+      }
+      .box-4 {
+        height: 25%;
+        border-radius: 15px 0px 0px 15px;
+        position: relative;
+        top: 0%;
+        left: 50%;
+        animation: b24 1s forwards;
+      }
+      @keyframes b13 {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 50%;
+        }
+      }
+      @keyframes b24 {
+        0% {
+          left: 100%;
+          width: 0%;
+        }
+        100% {
+          left: 50%;
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box-1">Box-1</div>
+      <div class="box-2">Box-2</div>
+      <div class="box-3">Box-3</div>
+      <div class="box-4">Box-4</div>
+    </div>
+  </body>
+</html>

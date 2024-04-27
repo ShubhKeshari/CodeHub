@@ -1,0 +1,244 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "1984",
+      "author": "George Orwell",
+      "publication_year": 1949,
+      "genre": "Dystopian Fiction",
+      "price": 25,
+      "details": {
+        "characters": ["Winston Smith", "Big Brother"]
+      },
+      "image": "./server-files/images/1984.png"
+    },
+    {
+      "id": 2,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "publication_year": 1960,
+      "genre": "Southern Gothic",
+      "price": 20,
+      "details": {
+        "characters": ["Atticus Finch", "Scout Finch"]
+      },
+      "image": "./server-files/images/ToKillAMockingbird.jpg"
+    },
+    {
+      "id": 3,
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "publication_year": 1954,
+      "genre": "High Fantasy",
+      "price": 30,
+      "details": {
+        "characters": ["Frodo Baggins", "Gandalf"]
+      },
+      "image": "./server-files/images/TheLordOfTheRings.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "publication_year": 1997,
+      "genre": "Fantasy",
+      "price": 22,
+      "details": {
+        "characters": ["Harry Potter", "Hermione Granger"]
+      },
+      "image": "./server-files/images/HarryPotterAndThePhilosopher'sStone.jpg"
+    },
+    {
+      "id": 5,
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "publication_year": 1979,
+      "genre": "Science Fiction",
+      "price": 18,
+      "details": {
+        "characters": ["Arthur Dent", "Ford Prefect"]
+      },
+      "image": "./server-files/images/TheHitchhiker'sGuideToTheGalaxy.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "publication_year": 1813,
+      "genre": "Romantic Fiction",
+      "price": 15,
+      "details": {
+        "characters": ["Elizabeth Bennet", "Mr. Darcy"]
+      },
+      "image": "./server-files/images/PrideAndPrejudice.jpg"
+    },
+    {
+      "id": 7,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "publication_year": 1951,
+      "genre": "Coming-of-Age Fiction",
+      "price": 18,
+      "details": {
+        "characters": ["Holden Caulfield", "Phoebe Caulfield"]
+      },
+      "image": "./server-files/images/TheCatcherInTheRye.jpg"
+    },
+    {
+      "id": 8,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "publication_year": 1925,
+      "genre": "Tragedy",
+      "price": 20,
+      "details": {
+        "characters": ["Jay Gatsby", "Daisy Buchanan"]
+      },
+      "image": "./server-files/images/TheGreatGatsby.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "publication_year": 1818,
+      "genre": "Gothic Fiction",
+      "price": 22,
+      "details": {
+        "characters": ["Victor Frankenstein", "The Creature"]
+      },
+      "image": "./server-files/images/Frankenstein.jpg"
+    },
+    {
+      "id": 10,
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "publication_year": 1937,
+      "genre": "Fantasy",
+      "price": 25,
+      "details": {
+        "characters": ["Bilbo Baggins", "Gollum"]
+      },
+      "image": "./server-files/images/TheHobbit.jpg"
+    },
+    {
+      "id": 11,
+      "title": "A Game of Thrones",
+      "author": "George R.R. Martin",
+      "publication_year": 1996,
+      "genre": "Epic Fantasy",
+      "price": 28,
+      "details": {
+        "characters": ["Jon Snow", "Daenerys Targaryen"]
+      },
+      "image": "./server-files/images/AGameOfThrones.jpg"
+    },
+    {
+      "id": 12,
+      "title": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "publication_year": 2003,
+      "genre": "Mystery",
+      "price": 24,
+      "details": {
+        "characters": ["Robert Langdon", "Sophie Neveu"]
+      },
+      "image": "./server-files/images/TheDaVinciCode.jpg"
+    },
+    {
+      "id": 13,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "publication_year": 1960,
+      "genre": "Southern Gothic",
+      "price": 19,
+      "details": {
+        "characters": ["Atticus Finch", "Scout Finch"]
+      },
+      "image": "./server-files/images/ToKillAMockingbird1.jpg"
+    },
+    {
+      "id": 14,
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "author": "C.S. Lewis",
+      "publication_year": 1950,
+      "genre": "Fantasy",
+      "price": 21,
+      "details": {
+        "characters": ["Aslan", "Lucy Pevensie"]
+      },
+      "image": "./server-files/images/TheChroniclesOfNarnia.jpg"
+    },
+    {
+      "id": 15,
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "publication_year": 1979,
+      "genre": "Science Fiction",
+      "price": 23,
+      "details": {
+        "characters": ["Arthur Dent", "Ford Prefect"]
+      },
+      "image": "./server-files/images/TheHitchhiker'sGuideToTheGalaxy.jpg"
+    },
+    {
+      "id": 16,
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "publication_year": 1890,
+      "genre": "Gothic Fiction",
+      "price": 18,
+      "details": {
+        "characters": ["Dorian Gray", "Lord Henry Wotton"]
+      },
+      "image": "./server-files/images/ThePictureOfDorianGray.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "publication_year": 1932,
+      "genre": "Dystopian Fiction",
+      "price": 22,
+      "details": {
+        "characters": ["Bernard Marx", "John the Savage"]
+      },
+      "image": "./server-files/images/BraveNewWorld.jpg"
+    },
+    {
+      "id": 18,
+      "title": "The Hitchhiker's Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "publication_year": 1979,
+      "genre": "Science Fiction",
+      "price": 18,
+      "details": {
+        "characters": ["Arthur Dent", "Ford Prefect"]
+      },
+      "image": "./server-files/images/TheHitchhiker'sGuideToTheGalaxy.jpg"
+    },
+    {
+      "id": 19,
+      "title": "The Chronicles of Narnia: The Lion",
+      "author": "C.S. Lewis",
+      "publication_year": 1952,
+      "genre": "Fantasy",
+      "price": 21,
+      "details": {
+        "characters": ["Aslan", "Lucy Pevensie"]
+      },
+      "image": "./server-files/images/TheChroniclesOfNarnia.jpg"
+    },
+    {
+      "id": 20,
+      "title": "Frankenstein",
+      "author": "Mary Shelley",
+      "publication_year": 1819,
+      "genre": "Gothic Fiction",
+      "price": 22,
+      "details": {
+        "characters": ["Victor Frankenstein", "The Creature"]
+      },
+      "image": "./server-files/images/Frankenstein.jpg"
+    }
+  ]
+}

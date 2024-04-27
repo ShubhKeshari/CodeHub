@@ -1,0 +1,40 @@
+1. Write Mongo query to retrieve the number of Products with a particular category("Electronics") as key "totalProduct" ?
+
+db.products.aggregate([{$lookup : {from : "categories", localField : "category_id", foreignField : "_id", as : "category"}}, {$unwind : "$category"}, {$group : {_id : "$category.name" ,  totalProduct : {$sum : 1}}}, {$match : {_id : "Electronics"}}, {$project : {_id : 0, totalProduct : 1}}  ])
+
+
+2. Write Mongo query to retrieve buyers in California(CA) sorted in descending order by name and return first three documents.
+
+db.buyers.find({'address.state' : 'CA'}).sort({name : 1}).limit(3)
+//by aggregate method
+db.buyers.aggregate([{$match : {'address.state' : 'CA'}}, {$sort : {name : 1}}, {$limit : 3} ])
+
+
+
+3. Write Mongo query to retrieve the latest 3 orders.
+
+db.orders.find().sort({order_date : -1}).limit(3)
+//by aggregate method
+db.orders.aggregate([{$sort : {order_date : -1}}, {$limit : 3}])
+
+
+
+4. Write Mongo query to get the total number of suppliers in each city in descending order.
+
+db.suppliers.aggregate([{$group : {_id : '$city', suppliers : {$sum : 1}}}, {$sort : {suppliers : -1}}  ])
+
+
+
+5. Write Mongo query to retrieve suppliers with the highest number of products and productCount in descending order with limit of 5.
+
+db.suppliers.aggregate([{$lookup : {from : "products", localField : "_id", foreignField : "supplier_id", as : "products"}}, {$project : {_id : 1, name : 1, city : 1, phone : 1, products : 1, productCount : {$size : '$products'}}}, {$sort : {productCount : -1}}, {$limit : 5}   ])
+
+//or
+
+db.suppliers.aggregate([{$lookup : {from : "products", localField : "_id", foreignField : "supplier_id", as : "products"}}, {$addFields : {productCount: { $size: "$products" }}}, {$sort : { productCount: -1 }}, {$limit : 5}])
+
+
+
+6. Write Mongo query to retrieve buyers(state is excluded) in New York with their orders.
+
+db.buyers.aggregate([{$match : {"address.city" : "New York" }}, {$lookup : {from : "orders", localField : "_id", foreignField : "customer_id", as : "orders"}}, {$project : {"address.state" : 0, "orders._id" : 0, "orders.customer_id" : 0}}    ])
